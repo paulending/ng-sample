@@ -1,0 +1,20 @@
+/* Global project styleguide */
+
+@import "./assets/variables";
+
+// basic html elements
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3{}
+p{}
+
+a {
+ color: $color-primary;
+}
+
+// form - input
+// form - button
+
