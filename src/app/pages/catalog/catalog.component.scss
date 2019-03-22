@@ -1,0 +1,14 @@
+@import '../../../assets/variables';
+.grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-gap: $gap-inner;
+
+    @media only screen and (min-width: 540px) {
+        grid-template-columns: 50% 50%;
+    }
+    @media only screen and (min-width: 800px) {
+        grid-template-columns: 33% 33% 33%;
+    }
+}

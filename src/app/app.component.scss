@@ -8,14 +8,14 @@
 }
 
 .header {
-    box-sizing: border-box;
     background: $color-white;
+    box-sizing: border-box;
     margin-bottom: $gap-vertical;
     width: 100%;
     .container {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        align-items: center;
     }
     .logo {
         max-width: 120px;
@@ -30,8 +30,8 @@
             border: 1px solid $color-border;
             color: $color-primary;
             font-weight: bold;
-            width: 50px;
             height: 50px;
+            width: 50px;
         }
         .menu-items {
             background: $color-white;
@@ -41,8 +41,8 @@
             margin: 0;
             padding: 0;
             position: absolute;
-            top: 100%;
             right: 0;
+            top: 100%;
             .menu-item {
                 display: block;
                 padding: $gap-inner-vertical;
@@ -66,9 +66,9 @@
                 display: none;
             }
             .menu-items {
+                border: 0;
                 display: block;
                 position: relative;
-                border: 0;
                 .menu-item {
                     display: inline-block;
                 }

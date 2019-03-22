@@ -1,3 +1,9 @@
-<p>
-  box works!
-</p>
+<div *ngIf="product" class="box">
+  <img src="{{product.imageUrl}}" alt="{{product.name}}" class="box-image">
+  <h3 class="box-title">{{product.name}}</h3>
+  <p class="box-description">{{product.description}}</p>
+
+  <div class="btn-block" *ngIf="product.availability > 0">
+    <button class="add-to-basket" (click)="addToBasket(product)">Buy</button>
+  </div>
+</div>

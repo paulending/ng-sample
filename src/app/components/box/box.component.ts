@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/models/product';
 
+// Box component shows basic information about product
 @Component({
   selector: 'app-box',
   templateUrl: './box.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoxComponent implements OnInit {
 
+  @Input() product: Product;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  addToBasket(product: Product) {
+    console.log(product);
+  }
 }

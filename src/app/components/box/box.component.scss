@@ -1,0 +1,20 @@
+@import "../../../assets/variables";
+.box {
+    box-sizing: border-box;
+}
+
+.box-image {
+    display: block;
+    margin: auto;
+    max-width: 250px;
+    width: 100%;
+}
+
+.add-to-basket {
+    border: 1px solid $color-border;
+    background: $color-success;
+    color: $color-white;
+    display: block;
+    margin: auto;
+    padding: $gap-inner/2 $gap-inner;
+}

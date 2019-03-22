@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
@@ -8,7 +9,8 @@ import { BoxComponent } from './components/box/box.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FilterComponent } from './components/filter/filter.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { basketReducer } from './store/basket.reducer';
+import { BasketComponent } from './components/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +18,17 @@ import { reducers, metaReducers } from './reducers';
     HomepageComponent,
     CatalogComponent,
     BoxComponent,
-    FilterComponent
+    FilterComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot({ basketState: basketReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
