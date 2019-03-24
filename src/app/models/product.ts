@@ -5,7 +5,7 @@ export class Product {
     imageUrl: string;
     description: string;
     availability: number;
-    price: number;
+    price: string;
     color: string;
     category: string;
 }

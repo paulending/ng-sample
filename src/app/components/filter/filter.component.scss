@@ -1,0 +1,15 @@
+@import "../../../assets/variables";
+.filter {
+    border: 1px solid $color-primary;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: $gap-vertical;
+    padding: $gap-inner;
+}
+
+.filter-parameter {
+    margin: 0 $gap-inner 0 0;
+    .label {
+        display: block;
+    }
+}

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
+import { subscribeOn } from 'rxjs/operators';
 
 // Catalog component shows list of products, categories and filters
 @Component({
@@ -9,17 +10,50 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
 })
-export class CatalogComponent implements OnInit {
+export class CatalogComponent implements OnInit, OnDestroy {
+  subscription: Subscription; // observable subscriptions
 
-  $products: Observable<Product[]> = new Observable<Product[]>();
+  products: Product[]; // array od product object
+
+  priceMin: number; // current pricemin filter
+  priceMax: number; // current pricemax filter
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
+    // TODO: load default values from products
+    this.priceMin = 0;
+    this.priceMax = 10;
+
     this.getProducts();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   getProducts(): void {
-    this.$products = this.productsService.getProducts();
+    this.subscription = this.productsService.getProducts().subscribe(
+      products => this.products = products.filter(
+        product => this.getPriceNum(product.price) > this.priceMin && this.getPriceNum(product.price) < this.priceMax
+      )
+    );
+  }
+
+  setFilter(priceMin: number, priceMax: number): void {
+    this.priceMin = priceMin;
+    this.priceMax = priceMax;
+
+    this.subscription.unsubscribe();
+    this.subscription = this.productsService.getProducts().subscribe(
+      products => this.products = products.filter(
+        product => this.getPriceNum(product.price) > this.priceMin && this.getPriceNum(product.price) < this.priceMax
+      )
+    );
+  }
+
+  // remove currency prom price
+  getPriceNum(price: string): number {
+    return Number(price.replace(/[^0-9.-]+/g, ''));
   }
 }

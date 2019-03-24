@@ -4,6 +4,7 @@
   <p class="box-description">{{product.description}}</p>
 
   <div class="btn-block" *ngIf="product.availability > 0">
+    <div class="box-price">{{product.price}}</div>
     <button class="add-to-basket" (click)="addToBasket(product)">Buy</button>
   </div>
 </div>

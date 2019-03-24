@@ -1,6 +1,8 @@
 @import "../../../assets/variables";
 .box {
     box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
 }
 
 .box-image {
@@ -10,6 +12,18 @@
     width: 100%;
 }
 
+.btn-block {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.box-price {
+    color: $color-primary;
+    font-weight: bold;
+    margin: 0 $gap-vertical 0;
+}
+
 .add-to-basket {
     border: 1px solid $color-border;
     background: $color-success;
@@ -17,4 +31,5 @@
     display: block;
     margin: auto;
     padding: $gap-inner/2 $gap-inner;
+    width: 50%;
 }
