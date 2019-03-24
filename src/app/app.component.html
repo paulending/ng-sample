@@ -2,14 +2,12 @@
 <div class="header">
     <div class="container">
         <a href="/">
-            <!-- <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png"
-                alt="ng-sample"> -->
             <img class="logo"
                 src="https://s.favi.cz/static/frontend/_global/images/favi-logo/favi-logo.60d511aff13247dd52f15acf6bdf2af9.svg"
                 role="banner">
         </a>
 
-        <nav class="menu">
+        <nav class="menu" role="navigation">
             <button class="menu-button">MENU</button>
             <ul class="menu-items">
                 <li class="menu-item"><a routerLink="/home" class="link">Home</a></li>
@@ -19,13 +17,13 @@
     </div>
 </div>
 
-<div class="content">
+<div class="content" role="main">
     <div class="container">
         <router-outlet></router-outlet>
     </div>
 </div>
 
-<div class="footer">
+<div class="footer" role="contentinfo">
     <div class="container">
         <p>This is a demo project for coding skills presentation. :)</p>
     </div>
