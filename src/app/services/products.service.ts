@@ -26,10 +26,8 @@ export class ProductsService {
     );
   }
 
-  // getColors(): Observable<string> {
-  //   return this.http.get<Products>(this.mockUrl).pipe(
-  //     map((distinct((p: string) => p['color']))),
-  //     catchError(error => throwError(error.message || error))
-  //   );
-  // }
+  // remove currency prom price
+  getPriceNum(price: string): number {
+    return Number(price.replace(/[^0-9.-]+/g, ''));
+  }
 }

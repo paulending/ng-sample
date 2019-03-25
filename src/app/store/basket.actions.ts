@@ -2,19 +2,19 @@ import { Action } from '@ngrx/store';
 import { BasketState } from './basket.state';
 import { Product } from '../models/product';
 
-export enum ActionTypes {
-    Add = '[Basket Component] Add product',
-    Remove = '[Basket Component] Remove product'
+export enum BasketActionTypes {
+    BasketAdd = '[Basket Component] Add product',
+    BasketRemove = '[Basket Component] Remove product'
 }
 
-export class Add implements Action {
-    readonly type = ActionTypes.Add;
+export class BasketAdd implements Action {
+    readonly type = BasketActionTypes.BasketAdd;
     constructor(public payload: Product) { }
 }
 
-export class Remove implements Action {
-    readonly type = ActionTypes.Remove;
+export class BasketRemove implements Action {
+    readonly type = BasketActionTypes.BasketRemove;
     constructor(public payload: number) { }
 }
 
-export type AllBasketActions = Add | Remove;
+export type AllBasketActions = BasketAdd | BasketRemove;

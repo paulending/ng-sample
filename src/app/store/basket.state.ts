@@ -5,7 +5,7 @@ export interface BasketState {
 }
 
 export class DefaultBasket implements BasketState {
-    products: Product[] = null;
+    products: Product[] = [];
 }
 
 export const defaultBasket = new DefaultBasket();

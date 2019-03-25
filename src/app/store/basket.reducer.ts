@@ -1,14 +1,21 @@
-import { Action, ActionReducerMap } from '@ngrx/store';
-import { ActionTypes } from './basket.actions';
+import { Action, ActionReducer } from '@ngrx/store';
+import { BasketActionTypes, AllBasketActions } from './basket.actions';
 import { defaultBasket, BasketState } from './basket.state';
 
-export function basketReducer(state = defaultBasket, action: Action): BasketState {
+export function basketReducer(state: BasketState = defaultBasket, action: AllBasketActions): BasketState {
     switch (action.type) {
-        case ActionTypes.Add:
-            return state;
+        case BasketActionTypes.BasketAdd:
+            //TODO: if product is in basket, than increment amount            
+            return {
+                ...state,
+                products: [...state.products, action.payload]
+            };
 
-        case ActionTypes.Remove:
-            return state;
+        case BasketActionTypes.BasketRemove:
+            return {
+                ...state,
+                products: state.products.filter(prod => prod.id != action.payload)
+            };
 
         default:
             return state;

@@ -1,1 +1,8 @@
-<div class="basket"><span class="basket-count">{{products$ | async}}</span></div>
+<div class="basket" *ngIf="products">
+    <div class="basket-price"><span class="label">Total price:</span>{{totalPrice(products)}}</div>
+    <div class="basket-count"><span class="label">Quatity:</span>{{products.length}}</div>
+
+    <ul class="basket-items" *ngIf="products.length > 0">
+        <li *ngFor="let product of products" class="basket-item">{{product.name}}</li>
+    </ul>
+</div>

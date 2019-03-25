@@ -35,7 +35,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   getProducts(): void {
     this.subscription = this.productsService.getProducts().subscribe(
       products => this.products = products.filter(
-        product => this.getPriceNum(product.price) > this.priceMin && this.getPriceNum(product.price) < this.priceMax
+        product => this.productsService.getPriceNum(product.price) > this.priceMin && this.productsService.getPriceNum(product.price) < this.priceMax
       )
     );
   }
@@ -47,13 +47,8 @@ export class CatalogComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
     this.subscription = this.productsService.getProducts().subscribe(
       products => this.products = products.filter(
-        product => this.getPriceNum(product.price) > this.priceMin && this.getPriceNum(product.price) < this.priceMax
+        product => this.productsService.getPriceNum(product.price) > this.priceMin && this.productsService.getPriceNum(product.price) < this.priceMax
       )
     );
-  }
-
-  // remove currency prom price
-  getPriceNum(price: string): number {
-    return Number(price.replace(/[^0-9.-]+/g, ''));
   }
 }
