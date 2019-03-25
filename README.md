@@ -1,14 +1,8 @@
 # NgSample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+Basket is based on ngRx. Product filter is done by two way data binding.
 
-##
-Live demo on the [page](http://www.coweb.cz/ng-sample)
+## Description
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+This is a project for skill demonstration purpose. :-)
